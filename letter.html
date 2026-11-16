@@ -1,0 +1,217 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Birthday Letter 💌</title>
+
+    <base target="websiteFrame">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .letter-emoji {
+            cursor: pointer;
+            display: inline-block;
+            font-size: 65px;
+            transition: transform 0.3s;
+        }
+
+        .letter-emoji:hover {
+            transform: scale(1.2) rotate(-10deg);
+        }
+
+        .letter-popup {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(35, 15, 45, 0.78);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .letter-card {
+            background: linear-gradient(145deg, #fff5f8, #f4e8ff);
+            width: 100%;
+            max-width: 390px;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 30px 24px;
+            border-radius: 22px;
+            text-align: center;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.25);
+            animation: letterOpen 0.5s ease;
+            position: relative;
+        }
+
+        @keyframes letterOpen {
+            from {
+                opacity: 0;
+                transform: translateY(30px) scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .letter-paper {
+            background: #fffdf7;
+            padding: 22px 18px;
+            border: 1px solid #f4c8d9;
+            border-radius: 12px;
+            margin: 18px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+        }
+
+        .letter-paper h2 {
+            color: #d64b89;
+            margin-bottom: 15px;
+        }
+
+        .letter-paper p {
+            color: #76546b;
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        .letter-close {
+            background: #e7549b;
+            color: white;
+            border: none;
+            padding: 11px 28px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        .letter-close:hover {
+            background: #c9367e;
+        }
+    </style>
+</head>
+
+<body>
+
+<section class="page">
+    <div class="content">
+
+        <div class="tag">💌 A LETTER FOR YOU</div>
+
+        <h1>Dear Kuttymam ❤️</h1>
+
+        <div class="letter-emoji" onclick="openLetter()">💌</div>
+
+        <p>
+            You are one of the most special people in my life.
+            Your smile makes every moment beautiful.
+            I wish your life is always filled with happiness,
+            love and success.
+        </p>
+
+        <h2>You deserve all the happiness! 🥹</h2>
+
+        <p>
+            Thank you for being a part of my life.
+            May our friendship stay beautiful forever! 🫂
+        </p>
+
+        <div class="button-group">
+            <a href="memories.html" class="btn">Memories 📸</a>
+            <a href="quiz.html" class="btn">Play Quiz 🎯</a>
+            <a href="index.html" class="btn">← Back</a>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- LETTER POPUP -->
+<div class="letter-popup" id="letterPopup">
+
+    <div class="letter-card">
+
+        <div style="font-size:35px;">💌</div>
+
+  
+<div class="letter-paper">
+
+    <h2>To My Dearest Kuttymam ❤️</h2>
+
+    <p>
+        Dear Kuttymam,
+        <br><br>
+
+        Whenever I see you, I feel like I am seeing
+        my own mother. I am not just saying this casually;
+        I genuinely mean it. 🥹
+        <br><br>
+
+        Whenever I feel low, just sitting beside you
+        makes me feel better. Being around you gives me
+        the same comfort, warmth and peace that I feel
+        with my mom. ❤️
+        <br><br>
+
+        After college, I always wait for you to come hostel.
+        I keep wondering when I will get to see you.
+        Even spending a little time with you makes my day
+        so much better. 🫂
+        <br><br>
+
+        Some people make us happy by talking,
+        but some people make us happy just by being there.
+        You are that special person in my life. 💗
+        <br><br>
+
+        Thank you for making me feel safe, loved
+        and cared for. I hope our bond stays beautiful
+        forever.
+        <br><br>
+
+        No matter how old I grow,
+        I will always be your little one. 🥹
+        <br><br>
+
+        <b>I love you so much, Kuttymam! ❤️</b>
+        <br><br>
+
+        <b>With lots of love,</b>
+        <br>
+        Your KuttyMam ❤️
+    </p>
+
+</div>
+
+
+        <button class="letter-close" onclick="closeLetter()">
+            Close Letter 💕
+        </button>
+
+    </div>
+
+</div>
+
+
+<script>
+function openLetter() {
+    document.getElementById("letterPopup").style.display = "flex";
+}
+
+function closeLetter() {
+    document.getElementById("letterPopup").style.display = "none";
+}
+
+document.getElementById("letterPopup").addEventListener("click", function(event) {
+    if (event.target === this) {
+        closeLetter();
+    }
+});
+</script>
+
+<script src="song.js"></script>
+
+</body>
+</html>

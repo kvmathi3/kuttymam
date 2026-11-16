@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Birthday Surprise 💗</title>
+    <base target="websiteFrame">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<section class="page">
+    <div class="content">
+        <div class="tag">✨ A SPECIAL DAY ✨</div>
+        <h1>Happy Birthday<br>Dear Kuttymam! ❤️</h1>
+        <div class="emoji">🎂🎈</div>
+        <h2>Do you want a surprise?</h2>
+        <p>I've prepared something special just for you!</p>
+        <div class="button-group">
+            <a href="letter.html" class="btn">LOVE ❤️</a>
+            <button onclick="noMessage()">NO 🙈</button>
+        </div>
+        <p class="message" id="response"></p>
+    </div>
+</section>
+<script>
+function noMessage() {
+    document.getElementById("response").innerHTML =
+    "No option illa! 😂 You must accept my surprise! ❤️";
+}
+</script>
+<script src="song.js"></script>
+</body>
+</html>

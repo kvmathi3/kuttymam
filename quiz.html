@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>How Well Do You Know Mathi? 💗</title>
+    <base target="websiteFrame">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .quiz-box {
+            max-width: 750px;
+            width: 95%;
+            margin: 30px auto;
+            padding: 25px;
+            background: white;
+            border-radius: 20px;
+        }
+        .question { text-align: left; margin: 22px 0; }
+        .question h3 { color: #c02670; margin-bottom: 10px; }
+        .question label {
+            display: block;
+            padding: 12px;
+            margin: 8px 0;
+            background: #ffe6f2;
+            border-radius: 12px;
+            cursor: pointer;
+        }
+        .question label:hover { background: #ffcce5; }
+        .name-box input {
+            width: 80%;
+            padding: 12px;
+            margin: 8px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+        }
+        #giftButton { display: none; margin: 20px auto; }
+    </style>
+</head>
+<body>
+<section class="page">
+<div class="quiz-box">
+    <h1>💗 How Well Do You Know Mathi? 💗</h1>
+    <p>Hey Seethalakshmi! Let's see how well you understand Mathi! 😍</p>
+
+    <div class="name-box">
+        <input type="text" id="friendName" value="Seethalakshmi" placeholder="Your name">
+        <input type="text" id="mathiName" value="Mathi" placeholder="Mathi's name">
+    </div>
+
+    <form id="quizForm">
+        <div class="question">
+            <h3>1. Mathi sad-ah irundha eppadi iruppa? 🥺</h3>
+            <label><input type="radio" name="q1" value="a"> Ellar kittayum happy-ah pesuva</label>
+            <label><input type="radio" name="q1" value="b"> Silent-ah iruppa, aana inside-la sad-ah iruppa</label>
+            <label><input type="radio" name="q1" value="c"> Always kovama iruppa</label>
+            <label><input type="radio" name="q1" value="d"> Yaarayum care panna maata</label>
+        </div>
+        <div class="question">
+            <h3>2. Mathi-ku nee evlo pudikkum? 💗</h3>
+            <label><input type="radio" name="q2" value="a"> Just normal friend</label>
+            <label><input type="radio" name="q2" value="b"> Close friend</label>
+            <label><input type="radio" name="q2" value="c"> Romba special-ah pudikkum</label>
+            <label><input type="radio" name="q2" value="d"> Ava enakku pudikkave pudikkadhu</label>
+        </div>
+        <div class="question">
+            <h3>3. Mathi upset-ah irundha nee enna pannuva? 🫂</h3>
+            <label><input type="radio" name="q3" value="a"> Ava kitta pesama vitruven</label>
+            <label><input type="radio" name="q3" value="b"> Ava feelings purinjikka try pannuven</label>
+            <label><input type="radio" name="q3" value="c"> Ava problem enakku thevai illa</label>
+            <label><input type="radio" name="q3" value="d"> Ava sad-ah irundhaalum ignore pannuven</label>
+        </div>
+        <div class="question">
+            <h3>4. Mathi friendship-la edha romba expect pannuva? 💕</h3>
+            <label><input type="radio" name="q4" value="a"> Expensive gifts</label>
+            <label><input type="radio" name="q4" value="b"> Daily shopping</label>
+            <label><input type="radio" name="q4" value="c"> Trust, care and understanding</label>
+            <label><input type="radio" name="q4" value="d"> Just time pass</label>
+        </div>
+        <div class="question">
+            <h3>5. Mathi sad-ah irukkumbodhu, ava un kitta enna expect pannuva? 🥹</h3>
+            <label><input type="radio" name="q5" value="a"> Ava feelings-ah understand panni, support pannanum</label>
+            <label><input type="radio" name="q5" value="b"> Ava kitta pesave koodadhu</label>
+            <label><input type="radio" name="q5" value="c"> Ava feelings-ah joke pannanum</label>
+            <label><input type="radio" name="q5" value="d"> Ava problem ignore pannanum</label>
+        </div>
+        <button type="button" onclick="checkAnswers()">Submit Answers 💗</button>
+    </form>
+
+    <div id="result"></div>
+    <div id="friendship"></div>
+    <div id="giftMessage"></div>
+    <button id="giftButton" onclick="openGift()">🎁 Open Your Birthday Gift</button>
+
+    <div class="button-group">
+        <a href="memories.html" class="btn">⬅ Back to Memories</a>
+    </div>
+</div>
+</section>
+
+<script>
+function checkAnswers() {
+    const answers = { q1: "b", q2: "c", q3: "b", q4: "c", q5: "a" };
+    let score = 0;
+
+    for (let question in answers) {
+        const selected = document.querySelector(
+            'input[name="' + question + '"]:checked'
+        );
+        if (!selected) {
+            alert("Please answer all 5 questions! 💗");
+            return;
+        }
+        if (selected.value === answers[question]) score++;
+    }
+
+    const friendName =
+        document.getElementById("friendName").value.trim() || "Seethalakshmi";
+    const mathiName =
+        document.getElementById("mathiName").value.trim() || "Mathi";
+    const percentage = score * 20;
+
+    document.getElementById("result").innerHTML =
+        "<h2>Your Score: " + score + " / 5 💗</h2>";
+
+    document.getElementById("friendship").innerHTML =
+        "<h2>💞 Friendship Result 💞</h2>" +
+        "<h3>" + friendName + " 💗 " + mathiName + "</h3>" +
+        "<h1>" + percentage + "% Friendship 💕</h1>";
+
+    const giftButton = document.getElementById("giftButton");
+    const giftMessage = document.getElementById("giftMessage");
+
+    if (score === 5) {
+        giftButton.style.display = "block";
+        giftMessage.innerHTML =
+            "<h2>🎉 Wow! You understand Mathi very well! 😍</h2>" +
+            "<p>Your special gift is unlocked! 🎁</p>";
+        sessionStorage.setItem("mathiGiftUnlocked", "yes");
+    } else {
+        giftButton.style.display = "none";
+        giftMessage.innerHTML =
+            "<h3>🥹 " + (5-score) +
+            " more correct answer(s) needed! Try again! 💗</h3>";
+        sessionStorage.removeItem("mathiGiftUnlocked");
+    }
+}
+
+function openGift() {
+    if (sessionStorage.getItem("mathiGiftUnlocked") === "yes") {
+        window.location.href = "gift.html";
+    } else {
+        alert("First get 5/5 to unlock your gift! 💗");
+    }
+}
+</script>
+<script src="song.js"></script>
+</body>
+</html>

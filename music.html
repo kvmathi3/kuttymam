@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Surprise ❤️</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { width: 100%; height: 100%; overflow: hidden; }
+        iframe { width: 100%; height: 100%; border: none; display: block; }
+    </style>
+</head>
+<body>
+    <!-- ONE AUDIO PLAYER FOR THE WHOLE WEBSITE -->
+    <audio id="birthdaySong" src="songs/birthday-song.mp3" autoplay loop preload="auto"></audio>
+
+    <!-- Every birthday page opens inside this iframe -->
+    <iframe id="websiteFrame" name="websiteFrame" src="index.html"></iframe>
+
+    <script>
+        const birthdaySong = document.getElementById("birthdaySong");
+        birthdaySong.volume = 0.7;
+
+        function startBirthdayMusic() {
+            if (birthdaySong.paused) {
+                birthdaySong.play().catch(error => {
+                    console.log("Browser blocked playback:", error);
+                });
+            }
+        }
+
+        // Try autoplay when the main page opens
+        window.addEventListener("load", startBirthdayMusic);
+
+        // A click inside any child page sends this message
+        window.addEventListener("message", event => {
+            if (event.data === "birthday-song-user-action") {
+                startBirthdayMusic();
+            }
+        });
+    </script>
+</body>
+</html>

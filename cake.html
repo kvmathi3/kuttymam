@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Birthday Cake 🎂</title>
+    <base target="websiteFrame">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<section class="page">
+<div class="content">
+    <div class="tag">🕯️ MAKE A WISH</div>
+    <h1>Your Birthday Cake!</h1>
+    <div class="emoji" id="cake">🎂</div>
+    <h2>Close your eyes and make a wish! ✨</h2>
+    <p>Now click the button and blow your candles!</p>
+
+    <div class="button-group">
+        <button onclick="blowCandles()">Blow Candles! 💨</button>
+        <a href="surprise.html" class="btn">Final Surprise 🎉</a>
+        <a href="wishes.html" class="btn">← Back to Wishes</a>
+    </div>
+
+    <p class="message" id="cakeMessage"></p>
+</div>
+</section>
+
+<script>
+function blowCandles() {
+    document.getElementById("cake").innerHTML = "🍰";
+    document.getElementById("cakeMessage").innerHTML =
+        "Wish granted! May all your dreams come true! 🥳❤️";
+}
+</script>
+<script src="song.js"></script>
+</body>
+</html>

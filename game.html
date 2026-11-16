@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Choose Your Gift</title>
+    <base target="websiteFrame">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<section class="page">
+    <div class="content">
+        <div class="tag">🎁 A LITTLE SURPRISE</div>
+        <h1>Choose Your Gift!</h1>
+        <p>One gift is waiting for you. Pick your favourite!</p>
+
+        <div class="button-group">
+            <button class="btn gift" onclick="openGift(1)">🎁 Gift 1</button>
+            <button class="btn gift" onclick="openGift(2)">🎀 Gift 2</button>
+            <button class="btn gift" onclick="openGift(3)">💝 Gift 3</button>
+        </div>
+
+        <div class="emoji" id="giftEmoji">🎁</div>
+        <h2 class="message" id="giftMessage">Choose one gift! 😍</h2>
+
+        <div class="button-group">
+            <a href="wishes.html" class="btn">Birthday Wishes 🌸</a>
+            <a href="quiz.html" class="btn">← Play Quiz Again</a>
+            <a href="cake.html" class="btn">Skip to Cake 🎂</a>
+        </div>
+    </div>
+</section>
+
+<script>
+function openGift(number) {
+    const gifts = {
+        1: ["💖", "Your gift is unlimited LOVE! You are special!"],
+        2: ["👑", "Your gift is a crown! You are today's QUEEN!"],
+        3: ["🧸", "Your gift is a big virtual hug! 🤗"]
+    };
+
+    document.getElementById("giftEmoji").innerHTML = gifts[number][0];
+    document.getElementById("giftMessage").innerHTML = gifts[number][1];
+}
+</script>
+<script src="song.js"></script>
+</body>
+</html>

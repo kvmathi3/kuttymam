@@ -1,0 +1,204 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Choose Your Gift 🎁</title>
+
+    <base target="websiteFrame">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* GIFT POPUP */
+        .gift-popup {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(40, 20, 50, 0.75);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .gift-card {
+            background: linear-gradient(135deg, #fff0f6, #f4e6ff);
+            width: 100%;
+            max-width: 370px;
+            padding: 30px 22px;
+            border-radius: 25px;
+            text-align: center;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.25);
+            position: relative;
+            animation: popIn 0.4s ease;
+        }
+
+        @keyframes popIn {
+            from {
+                transform: scale(0.6);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .gift-item {
+            font-size: 85px;
+            margin: 15px 0;
+            animation: bounce 1.5s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .gift-card h2 {
+            color: #d63384;
+            margin-bottom: 12px;
+        }
+
+        .gift-card p {
+            color: #754568;
+            font-size: 17px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .close-gift {
+            background: #e7549b;
+            color: white;
+            border: none;
+            padding: 11px 25px;
+            border-radius: 25px;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        .close-gift:hover {
+            background: #c9367e;
+        }
+
+        .gift-card .gift-subtitle {
+            color: #b34d87;
+            font-weight: bold;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+<section class="page">
+<div class="content">
+
+    <div class="tag">🎁 A LITTLE SURPRISE</div>
+
+    <h1>Choose Your Gift!</h1>
+
+    <p>One gift is waiting for you. Pick your favourite!</p>
+
+    <div class="button-group">
+        <button onclick="openGift(1)">🎁 Gift 1</button>
+        <button onclick="openGift(2)">🎀 Gift 2</button>
+        <button onclick="openGift(3)">💝 Gift 3</button>
+    </div>
+
+    <div class="emoji" id="giftEmoji">🎁</div>
+
+    <h2 id="giftMessage">Choose one gift! 😍</h2>
+
+    <div class="button-group">
+        <a href="wishes.html" class="btn">Birthday Wishes 🌸</a>
+        <a href="quiz.html" class="btn">← Play Quiz Again</a>
+        <a href="cake.html" class="btn">Skip to Cake 🎂</a>
+    </div>
+
+</div>
+</section>
+
+
+<!-- GIFT POPUP -->
+<div class="gift-popup" id="giftPopup">
+
+    <div class="gift-card">
+
+        <div class="gift-subtitle">A SPECIAL GIFT FOR YOU 💗</div>
+
+        <div class="gift-item" id="popupGift">🖼️</div>
+
+        <h2 id="popupTitle">Your Special Gift!</h2>
+
+        <p id="popupQuote">
+            You deserve all the happiness in the world! 💕
+        </p>
+
+        <button class="close-gift" onclick="closeGift()">
+            Close 💗
+        </button>
+
+    </div>
+
+</div>
+
+
+<script>
+
+if (sessionStorage.getItem("mathiGiftUnlocked") !== "yes") {
+    alert("Please complete the quiz with 5/5 first! 💗");
+    window.location.replace("quiz.html");
+}
+
+function openGift(number) {
+
+    const gifts = {
+
+        1: {
+            emoji: "🖼️",
+            title: "A Beautiful Photo Frame! 💖",
+            quote: "Some memories are priceless, and some people make every memory beautiful. Keep smiling and creating beautiful memories! 🌸"
+        },
+
+        2: {
+            emoji: "✨💎",
+            title: "Beautiful Jhumkas! 💕",
+            quote: "May your life sparkle as beautifully as these jhumkas. Never stop shining, because your smile is your prettiest jewellery! 👑"
+        },
+
+        3: {
+            emoji: "⌚",
+            title: "A Lovely Watch! 🎀",
+            quote: "Time flies, but beautiful moments stay forever. May every second of your life be filled with happiness, love and success! 💗"
+        }
+
+    };
+
+    document.getElementById("popupGift").innerHTML = gifts[number].emoji;
+    document.getElementById("popupTitle").innerHTML = gifts[number].title;
+    document.getElementById("popupQuote").innerHTML = gifts[number].quote;
+
+    document.getElementById("giftEmoji").innerHTML = gifts[number].emoji;
+    document.getElementById("giftMessage").innerHTML = gifts[number].title;
+
+    document.getElementById("giftPopup").style.display = "flex";
+}
+
+function closeGift() {
+    document.getElementById("giftPopup").style.display = "none";
+}
+
+document.getElementById("giftPopup").addEventListener("click", function(event) {
+    if (event.target === this) {
+        closeGift();
+    }
+});
+
+</script>
+
+<script src="song.js"></script>
+
+</body>
+</html>

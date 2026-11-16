@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Final Birthday Surprise 🎉</title>
+    <base target="websiteFrame">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .final-heart {
+            font-size: 65px;
+            animation: heartbeat 1s infinite;
+        }
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        .celebration { font-size: 35px; margin: 20px; }
+    </style>
+</head>
+<body>
+<section class="page">
+<div class="content">
+    <div class="tag">🎉 THE FINAL SURPRISE 🎉</div>
+    <h1>Happy Birthday, Kuttymam! ❤️</h1>
+    <div class="final-heart">💗</div>
+    <h2>To My Special Friend 🫂</h2>
+    <p>
+        No matter how many birthdays come and go,
+        I hope your life is always filled with smiles,
+        love, success and unforgettable memories.
+    </p>
+    <p>
+        Thank you for being part of my journey.
+        Our friendship will always be special to me! 🥹
+    </p>
+    <div class="celebration">🎂 🎈 🎁 💐</div>
+    <button onclick="celebrate()">Celebrate 🎉</button>
+    <p class="message" id="finalMessage"></p>
+    <div class="button-group">
+        <a href="index.html" class="btn">Start Again ❤️</a>
+        <a href="cake.html" class="btn">Cake Again 🎂</a>
+    </div>
+</div>
+</section>
+
+<script>
+function celebrate() {
+    document.getElementById("finalMessage").innerHTML =
+        "🎉 Happy Birthday! Keep smiling forever! Love you, kuttymam! ❤️🥳";
+}
+</script>
+<script src="song.js"></script>
+</body>
+</html>
